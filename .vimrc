@@ -38,7 +38,6 @@ set wildmenu
 
 "disable q for Ex Mode
 nnoremap Q <nop>
-"nnoremap <esc> :noh<return><esc>
 
 imap <C-w><C-w> <esc><C-w><C-w>
 
