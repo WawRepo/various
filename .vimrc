@@ -32,9 +32,18 @@ set sw=3
 set tabstop=3
 "set c+tab anti tab
 "?
-set wildmenu
-"set wildmode=longest:full,full
+"set wildmode
+ 
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-p>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
 
+inoremap <Tab> <C-R>=Tab_Or_Complete()<Enter>
+inoremap <expr> <Esc>pumvisible() ? "\<C-e>" : "\<Esc>"
 
 "disable q for Ex Mode
 nnoremap Q <nop>
